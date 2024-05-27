@@ -24,6 +24,10 @@ public class Produto {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
+	@NotNull(message = "O atributo quantidade é obrigatório!")
+	@Min(value = 0, message ="A quantidade deve ser maior ou igual a 0")
+	private Long quantidade;
 
 	@NotNull(message = "O atributo descrição precisa conter algum caractere")
 	private Integer lancamento;
@@ -114,5 +118,15 @@ public class Produto {
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+
+	public Long getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Long quantidade) {
+		this.quantidade = quantidade;
+	}
+	
+	
 
 }
